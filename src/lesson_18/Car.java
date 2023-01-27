@@ -70,7 +70,8 @@ public class Car  extends Transport <CarDriver> implements Competing{
 
     @Override
     public String toString() {
-        return "CAR: "+super.toString();
+        String body = (bodyType!=null)? bodyType.toString():"";
+        return "CAR: "+super.toString()+" "+body;
     }
 
     ////////////////////// interface methods //////////////////////

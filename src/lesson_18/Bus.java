@@ -85,7 +85,8 @@ public class Bus extends Transport<BusDriver> implements Competing {
 
     @Override
     public String toString() {
-        return "Bus:" + super.toString();
+        String capacity = (busCapacity!=null)? busCapacity.toString():"";
+        return "Bus:" + super.toString()+"  "+capacity;
     }
 
     ////////////////////////////// interface methods ////////////////

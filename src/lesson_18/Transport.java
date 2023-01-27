@@ -71,6 +71,6 @@ abstract public class Transport<T extends Driver> {
 
     abstract public T getDriver();
 
-    abstract void printType();
+    abstract public void printType();
 
 } // Transport

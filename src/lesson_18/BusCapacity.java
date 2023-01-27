@@ -18,7 +18,7 @@ public enum BusCapacity {
     public String toString() {
         String low = (lowBorder != null) ? (" От " + lowBorder) : " ";
         String up = (upBorder != null) ? ("До " + upBorder) : "";
-        return "Вместительность: " + low + up;
+        return "Вместительность: " + low +" "+ up;
     }
     static public BusCapacity getBusCapacityByCount(int count) {
         BusCapacity errorValue = null;

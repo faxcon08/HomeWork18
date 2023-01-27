@@ -74,7 +74,8 @@ public class Truck extends Transport <TruckDriver> implements Competing{
 
     @Override
     public String toString() {
-        return "Truck: " + super.toString();
+        String capacity = (loadCapacity!=null)? loadCapacity.toString():"";
+        return "Truck: " + super.toString()+"  "+capacity;
     }
 
     ////////////////////////////// interface methods ////////////////

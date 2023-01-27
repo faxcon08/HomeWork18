@@ -17,7 +17,7 @@ public enum LoadCapacity {
     public String toString() {
         String low = (lowBorder!=null)? (" От "+lowBorder) : "";
         String up = (upBorder!=null)? (" До "+upBorder): "";
-        return "Грузоподьемность: "+low+up;
+        return "Грузоподьемность: "+low+" "+up;
     }
 
     static public LoadCapacity getLoadCapacityByWeight(float weight) {
