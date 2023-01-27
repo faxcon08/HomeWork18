@@ -20,12 +20,13 @@ public enum BusCapacity {
         String up = (upBorder != null) ? ("До " + upBorder) : "";
         return "Вместительность: " + low + up;
     }
-    public BusCapacity getBusCapacityByCount(int count) {
+    static public BusCapacity getBusCapacityByCount(int count) {
+        BusCapacity errorValue = null;
         Integer minCount = 0;
         Integer maxCount = 120;
         if (count < minCount || count > maxCount) {
-            System.err.println("Некорректное значение возможной вместимости для автобуса. Присвоено занчение по умолчанию");
-            return BusCapacity.MIDDLE;
+            System.err.println("Некорректное значение возможной вместимости для автобуса. ");
+            return errorValue;
         }
         for (BusCapacity busCapacity : BusCapacity.values()) {
             Integer low = (busCapacity.lowBorder!=null)? busCapacity.lowBorder: minCount;
@@ -33,7 +34,7 @@ public enum BusCapacity {
             if( low <= count && up > count)
                 return busCapacity;
         }
-        System.err.println("Некорректное значение возможной вместимости для автобуса. Присвоено занчение по умолчанию");
-        return BusCapacity.MIDDLE;
+        System.err.println("Некорректное значение возможной вместимости для автобуса. ");
+        return errorValue;
     }
 }

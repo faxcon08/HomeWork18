@@ -20,20 +20,21 @@ public enum LoadCapacity {
         return "Грузоподьемность: "+low+up;
     }
 
-    public LoadCapacity getLoadCapacityByWeight(float weight) {
+    static public LoadCapacity getLoadCapacityByWeight(float weight) {
+        LoadCapacity defaultValue = null;
         Float maxPossibleCapacity = 1000f;
         Float minCapacity = 0f;
         if (weight < 0 || weight > maxPossibleCapacity) {
-            System.err.println("Некорретное значение возможной грузоподьемности грузовика. Присвоено значение по умолчанию");
-            return N1;
+            System.err.println("Некорретное значение возможной грузоподьемности грузовика.");
+            return defaultValue;
         }
         for (LoadCapacity loadCapacity : LoadCapacity.values()) {
-            Float low = (lowBorder!=null)? lowBorder: minCapacity;
-            Float up = (upBorder!=null)? upBorder: maxPossibleCapacity;
+            Float low = (loadCapacity.lowBorder!=null)? loadCapacity.lowBorder: minCapacity;
+            Float up = (loadCapacity.upBorder!=null)? loadCapacity.upBorder: maxPossibleCapacity;
             if(low <=weight && up>weight)
                 return loadCapacity;
         }
-        System.err.println("Некорретное значение возможной грузоподьемности грузовика. Присвоено значение по умолчанию");
-        return N1;
+        System.err.println("Некорретное значение возможной грузоподьемности грузовика.");
+        return defaultValue;
     }
 }
